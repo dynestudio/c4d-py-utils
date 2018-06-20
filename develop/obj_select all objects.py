@@ -1,6 +1,4 @@
 import c4d
-from c4d import gui, documents
-#Welcome to the world of Python
  
 def GetNextObject(op):
     if op == None: return None
@@ -13,18 +11,26 @@ def GetNextObject(op):
     return op.GetNext()
  
 def main():
-    obj = doc.GetActiveObject()
 
-    myobject = doc.GetFirstObject()
-    if myobject == None: return
+    print 'checkpoint 01'
+    # get first obj
+    first_obj = doc.GetFirstObject()
+    if first_obj == None: return
 
+    # make the scene obj list
     list_objs = []
 
-    while myobject:            
-        myobject = GetNextObject(myobject)
-        list_objs.append(myobject)
+    list_objs.append(first_obj)
+
+    print 'checkpoint 02'
+
+    while first_obj:            
+        first_obj = GetNextObject(first_obj)
+        list_objs.append(first_obj)
         
-    c4d.EventAdd()
+    c4d.EventAdd() # update the scene
+
+    print 'checkpoint 03'
  
     print list_objs
     print len(list_objs)
