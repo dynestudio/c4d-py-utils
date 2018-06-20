@@ -20,9 +20,12 @@ def main():
     # add the first obj
     list_objs.append(frist_obj)
 
+    print 'checlpoint 01'    
+
     # obj loop iteration
     while frist_obj:          
         obj = GetNextObject(frist_obj)
+        print obj
         list_objs.append(obj)
         
     print len(list_objs)
