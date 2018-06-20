@@ -1,11 +1,11 @@
 import c4d
+from c4d import gui, documents
+#Welcome to the world of Python
  
-def GetNextObject(op): # object manager iteration
-    if not op:
-        return None
+def GetNextObject(op):
+    if op == None: return None
  
-    if op.GetDown():
-        return op.GetDown()
+    if op.GetDown(): return op.GetDown()
  
     while not op.GetNext() and op.GetUp():
         op = op.GetUp()
@@ -13,23 +13,21 @@ def GetNextObject(op): # object manager iteration
     return op.GetNext()
  
 def main():
-    # get first obj
-    frist_obj = doc.GetFirstObject()
-    # list of all objects in the scene
+    obj = doc.GetActiveObject()
+
+    myobject = doc.GetFirstObject()
+    if myobject == None: return
+
     list_objs = []
-    # add the first obj
-    list_objs.append(frist_obj)
 
-    print 'checlpoint 01'    
-
-    # obj loop iteration
-    while frist_obj:          
-        obj = GetNextObject(frist_obj)
-        print obj
-        list_objs.append(obj)
+    while myobject:            
+        myobject = GetNextObject(myobject)
+        list_objs.append(myobject)
         
-    print len(list_objs)
+    c4d.EventAdd()
+ 
     print list_objs
+    print len(list_objs)
 
 if __name__=='__main__':
     main()
