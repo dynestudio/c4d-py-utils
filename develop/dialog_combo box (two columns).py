@@ -3,15 +3,19 @@ from c4d import gui
 
 class OptionsDialog(gui.GeDialog):
     IDC_LABELNAME = 10000
-    IDC_LIST      = 10001
-    IDC_INPUT_00  = 10002
-    IDC_INPUT_01  = 10003
-    IDC_INPUT_02  = 10004
-    IDC_INPUT_03  = 10005
+    IDC_GROUP_01  = 10001
+    IDC_LIST      = 10002
+    IDC_INPUT_00  = 10003
+    IDC_INPUT_01  = 10004
+    IDC_INPUT_02  = 10005
+    IDC_INPUT_03  = 10006
 
     def CreateLayout(self):
         #title
         self.SetTitle('Title')
+
+        # group colums
+        self.GroupBegin(self.IDC_GROUP_01, c4d.BFH_CENTER, 2, 2, "Main Group", 0, 100, 10)
 
         #statics text - description UI
         self.AddStaticText(self.IDC_LABELNAME, c4d.BFH_LEFT, name = 'What do you want to do with this dialog?') 
@@ -22,6 +26,9 @@ class OptionsDialog(gui.GeDialog):
         self.AddChild(self.IDC_LIST, self.IDC_INPUT_01, "input 1")
         self.AddChild(self.IDC_LIST, self.IDC_INPUT_02, "input 2")
         self.AddChild(self.IDC_LIST, self.IDC_INPUT_03, "input 3")
+
+        # close group
+        self.GroupEnd()
 
         # Ok/Cancel buttons
         self.AddDlgGroup(c4d.DLG_OK|c4d.DLG_CANCEL)
