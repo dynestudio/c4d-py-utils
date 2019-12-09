@@ -26,7 +26,6 @@ def GetRedshiftPostFXSettings():
 def rs_ocio_filmic_setting():
     # find the Redshift video post data   
     redshift_postfx_settings = GetRedshiftPostFXSettings()
-    redshift_postfx_settings = False
     # setting up - color management settings
     redshift_postfx_settings[c4d.REDSHIFT_POSTEFFECTS_COLORMANAGEMENT_ENABLED]                          = True
     redshift_postfx_settings[c4d.REDSHIFT_POSTEFFECTS_COLORMANAGEMENT_COMPENSATE_VIEW_TRANSFORM]        = True
