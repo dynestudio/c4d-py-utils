@@ -28,7 +28,7 @@ def main():
         if plug is None:
             return
 
-        filePath = "//192.168.10.45/server_01/2018/claro_and_cia/shot_010/3d/houdini/footage/alembic/" + name + ".abc"
+        filePath = "Y:\My Drive\Dyne - Works\Ilicit - Coco Keratina\\04_3D\\01_C4D\\01_RnD\\" + name + ".abc"
 
 
         doc.SetSelection( obj , c4d.SELECTION_NEW) #new active selection for each object
